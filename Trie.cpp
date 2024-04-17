@@ -6,7 +6,11 @@
 
 
 Trie::Trie() : root(std::make_shared<TrieNode>()) {}
-
+/**
+ * Inserts a word into the Trie.
+ * Each character of the word is checked and corresponding TrieNode is created if not already present.
+ * @param word The word to be inserted into the Trie.
+ */
 void Trie::insert(const std::string& word) {
     std::shared_ptr<TrieNode> node = root;
     for (char ch : word) {
