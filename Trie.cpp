@@ -21,7 +21,6 @@ void Trie::insert(const std::string& word) {
     }
     node->isEndOfWord = true;
 }
-
 bool Trie::search(const std::string& word) const {
     std::shared_ptr<TrieNode> node = root;
     for (char ch : word) {
@@ -30,7 +29,6 @@ bool Trie::search(const std::string& word) const {
     }
     return node->isEndOfWord;
 }
-
 std::vector<std::string> Trie::startsWith(const std::string& prefix) const {
     std::shared_ptr<TrieNode> node = root;
     std::vector<std::string> result;

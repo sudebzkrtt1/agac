@@ -15,5 +15,4 @@ public:
 
     TrieNode();
 };
-
 #endif //TRIENODE_H
