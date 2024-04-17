@@ -21,6 +21,13 @@ void Trie::insert(const std::string& word) {
     }
     node->isEndOfWord = true;
 }
+
+/**
+ * @brief Searches for a word in the trie.
+ *
+ * @param word The word to search within the trie.
+ * @return true if the word is found, false otherwise.
+ */
 bool Trie::search(const std::string& word) const {
     std::shared_ptr<TrieNode> node = root;
     for (char ch : word) {
@@ -29,6 +36,12 @@ bool Trie::search(const std::string& word) const {
     }
     return node->isEndOfWord;
 }
+/**
+    * @brief Finds all words in the trie that start with the given prefix.
+    *
+    * @param prefix The prefix to search for in the trie.
+    * @return std::vector<std::string> A list of words that start with the specified prefix.
+    */
 std::vector<std::string> Trie::startsWith(const std::string& prefix) const {
     std::shared_ptr<TrieNode> node = root;
     std::vector<std::string> result;
@@ -39,6 +52,13 @@ std::vector<std::string> Trie::startsWith(const std::string& prefix) const {
     autoSuggest(node, result, prefix);
     return result;
 }
+/**
+    * @brief Helper function to collect all words in the trie that start from the given node.
+    *
+    * @param node The current trie node to start searching from.
+    * @param result A reference to a vector of strings to hold the resulting words.
+    * @param currentPrefix The current prefix formed by the path to this node.
+    */
 
 void Trie::autoSuggest(const std::shared_ptr<TrieNode>& node, std::vector<std::string>& result, const std::string& currentPrefix) const {
     if (node->isEndOfWord) {
